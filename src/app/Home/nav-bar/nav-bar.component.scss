@@ -1,0 +1,34 @@
+.navbar {
+  .logo {
+    width: 50px;
+  }
+
+  a {
+    color: var(white-primary) !important;
+  }
+
+  .active,
+  .nav-link:hover {
+    color: var(--main-color) !important;
+  }
+
+  // #shopping-cart:hover,
+  // #wishList:hover {
+  //   color: var(--btn-bg-main) !important;
+  // }
+
+  #dropdownId,
+  #logout {
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    background-color: var(--hover-link-main) !important;
+  }
+
+  .dropdown-item:hover {
+    font-weight: bold;
+  }
+
+
+}

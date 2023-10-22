@@ -1,0 +1,133 @@
+<div class="mt-5 py-5">
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-md-4">
+        <div>
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of peopleImages.profiles">
+              <img [src]="baseImageURL+item.file_path" class="w-100" alt="">
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div class="col-md-8 d-flex align-items-center">
+        <div class="w-100">
+          <div class="row">
+            <h2 class="col-12 text-main-color fw-bold text-capitalize">name :
+              <span> {{people.name}}</span>
+            </h2>
+
+            <h2 class="col-12 text-main-color fw-bold text-capitalize">overview :
+              <span class="font-sm"> {{people.biography}}</span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">birthday :
+              <span class="font-sm"> {{people.birthday}}</span>
+            </h2>
+
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">deathday :
+              <span class="font-sm"> {{people.deathday}} </span>
+            </h2>
+
+            <h2 *ngIf="people.gender==1" class="col-md-6 text-main-color fw-bold text-capitalize">gender :
+              <span class="font-sm">Female </span>
+            </h2>
+
+            <h2 *ngIf="people.gender==2" class="col-md-6 text-main-color fw-bold text-capitalize">gender :
+              <span class="font-sm">Male </span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">department :
+              <span class="font-sm">{{people.known_for_department}} </span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">place of birth :
+              <span class="font-sm"> {{people.place_of_birth}} </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Cast Movie Credit</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of peopleMovieCredit.cast">
+              <a [routerLink]="['/shared/PeopleDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.poster_path?baseImageURL+item.poster_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.title|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.character}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Crew Movie Credit</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of peopleMovieCredit.crew">
+              <a [routerLink]="['/shared/PeopleDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.poster_path?baseImageURL+item.poster_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.title|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.department}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Cast TV Credit</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of peopleTvCredit.cast">
+              <a [routerLink]="['/shared/PeopleDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.poster_path?baseImageURL+item.poster_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.name|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.character}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Crew TV Credit</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of peopleTvCredit.crew">
+              <a [routerLink]="['/shared/PeopleDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.poster_path?baseImageURL+item.poster_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.name|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.department}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

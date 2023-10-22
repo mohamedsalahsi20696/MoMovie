@@ -1,0 +1,158 @@
+<div class="mt-5 py-5">
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-md-4">
+        <div>
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of tvImages.backdrops">
+              <img [src]="baseImageURL+item.file_path" class="w-100" alt="">
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div class="col-md-8 d-flex align-items-center">
+        <div class="w-100">
+          <div class="row">
+            <h2 class="col-12 text-main-color fw-bold text-capitalize">name :
+              <span> {{tv.name}}</span>
+            </h2>
+
+            <h2 class="col-12 text-main-color fw-bold text-capitalize">overview :
+              <span class="font-sm"> {{tv.overview}}</span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">status :
+              <span class="font-sm"> {{tv.status}}</span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">original language :
+              <span class="font-sm"> {{tv.original_language}} </span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">first air date :
+              <span class="font-sm">{{tv.first_air_date}} </span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">last air date :
+              <span class="font-sm">{{tv.last_air_date}} </span>
+            </h2>
+
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">Vote Count :
+              <span class="font-sm"> {{tv.vote_count}} </span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">number of episodes :
+              <span class="font-sm"> {{tv.number_of_episodes}}</span>
+            </h2>
+
+            <h2 class="col-md-6 text-main-color fw-bold text-capitalize">number of seasons :
+              <span class="font-sm"> {{tv.number_of_seasons}}</span>
+            </h2>
+
+            <div class="col-md-6 d-flex align-items-center">
+              <h2 class="text-main-color fw-bold text-capitalize">vote average : </h2>
+              <span class="ms-2">
+                <app-circle-progress [progress]="tv.vote_average*10"></app-circle-progress>
+              </span>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-start align-items-start my-3 flex-wrap">
+              <h2 class="text-main-color fw-bold text-capitalize">genres : </h2>
+              <div *ngFor="let item of tv.genres" class="mx-1">
+                <label class="btn btn-outline-danger">{{item.name}}</label>
+              </div>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-start align-items-start my-3 flex-wrap">
+              <h2 class="text-main-color fw-bold text-capitalize">companies : </h2>
+              <div *ngFor="let item of tv.production_companies" class="mx-1">
+                <label class="btn btn-outline-danger">{{item.name}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Cast</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of tvCredit.cast">
+              <a [routerLink]="['/shared/PeopleDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.profile_path?baseImageURL+item.profile_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.name|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.known_for_department}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Crew</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of tvCredit.crew">
+              <a [routerLink]="['/shared/PeopleDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.profile_path?baseImageURL+item.profile_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.name|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.known_for_department}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Recommendations</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of tvRecommendations.results">
+              <a [routerLink]="['/shared/TvDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.poster_path?baseImageURL+item.poster_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.name|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.first_air_date}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="header">
+          <h2 class="mt-5 fw-bold color-main">Similar</h2>
+        </div>
+        <div class=" col-12 m-auto text-center ">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of tvSimilar.results">
+              <a [routerLink]="['/shared/MovieDetails',item.id]">
+                <div class="cursor-pointer">
+                  <img [src]="item.poster_path?baseImageURL+item.poster_path:'./assets/images/no-image.PNG'"
+                    class="category-slider" alt="">
+                  <h3 class="my-1">{{item.name|seeMore:2}}</h3>
+                </div>
+              </a>
+              <h4>{{item.first_air_date}}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

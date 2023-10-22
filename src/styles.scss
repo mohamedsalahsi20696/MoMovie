@@ -1,0 +1,165 @@
+/* You can add global styles to this file, and also import other style files */
+@use './global_style';
+
+
+
+
+.text-black-primary {
+  color: var(--black-primary) !important;
+}
+
+.bg-black-primary {
+  background-color: var(--black-primary) !important;
+}
+
+.text-black-secondary {
+  color: var(--black-secondary) !important;
+}
+
+.bg-black-secondary {
+  background-color: var(--black-secondary) !important;
+}
+
+.text-main-color {
+  color: var(--main-color) !important;
+}
+
+.bg-main-color {
+  background-color: var(--main-color) !important;
+}
+
+.text-hover-main-color {
+  color: var(--hover-main-color) !important;
+}
+
+.bg-hover-main-color {
+  background-color: var(--hover-main-color) !important;
+}
+
+.text-link-main {
+  color: var(--link-main) !important;
+}
+
+.bg-link-main {
+  background-color: var(--link-main) !important;
+}
+
+.text-hover-link-main {
+  color: var(--hover-link-main) !important;
+}
+
+.bg-hover-link-main {
+  background-color: var(--hover-link-main) !important;
+}
+
+.text-text-main {
+  color: var(--text-main) !important;
+}
+
+.bg-text-main {
+  background-color: var(--text-main) !important;
+}
+
+.text-white-primary {
+  color: var(--white-primary) !important;
+}
+
+.bg-white-primary {
+  background-color: var(--white-primary) !important;
+}
+
+.text-white-secondary {
+  color: var(--white-secondary) !important;
+}
+
+.bg-white-secondary {
+  background-color: var(--white-secondary) !important;
+}
+
+.text-main {
+  color: var(--text-main) !important;
+}
+
+.color-main {
+  color: var(--main-color) !important;
+}
+
+.btn-bg-secondary {
+  color: var(--text-main) !important;
+  background-color: var(--main-color) !important;
+}
+
+.font-sm {
+  font-size: 14px;
+}
+
+
+
+
+
+// .paragraph-main {
+//   color: var(--paragraph-main) !important;
+// }
+
+// .nested-paragraph-main {
+//   color: var(--nested-paragraph-main) !important;
+// }
+
+// .header-main {
+//   color: var(--header-main) !important;
+// }
+
+// .link-main {
+//   color: var(--link-main) !important;
+// }
+
+// .hover-link-main {
+//   color: var(--hover-link-main) !important;
+// }
+
+// .main-color {
+//   color: var(--main-color);
+// }
+
+
+
+// .bg-secondary {
+//   background-color: var(--bg-secondary) !important;
+// }
+
+// .bg-title {
+//   background-color: var(--bg-title) !important;
+// }
+
+// .btn-bg-main {
+//   color: var(--text-main) !important;
+//   background-color: var(--btn-bg-main) !important;
+// }
+
+
+
+// .border-color-general {
+//   border-color: var(--border-color-general) !important;
+// }
+
+// .border-color-btn-main {
+//   border-color: var(--border-color-btn-main) !important;
+// }
+
+// .border-color-btn-secondary {
+//   border-color: var(--border-color-btn-secondary) !important;
+// }
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

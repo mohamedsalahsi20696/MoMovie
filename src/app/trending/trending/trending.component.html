@@ -1,0 +1,73 @@
+<div class="container mt-5 py-5">
+  <section id="Movie">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" (click)="choiceTimeWindowType($event)" class="btn-check" value="day"
+            name="btnRadioTrending" id="trending-day" autocomplete="off" checked>
+          <label class="btn btn-outline-danger" (click)="choiceTimeWindowType($event)" for="trending-day">Day</label>
+
+          <input type="radio" class="btn-check" (click)="choiceTimeWindowType($event)" value="week"
+            name="btnRadioTrending" id="trending-week" autocomplete="off">
+          <label class="btn btn-outline-danger" for="trending-week">Week</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div *ngIf="data.results;else noDataYet">
+    <div class="row  d-flex justify-content-center">
+      <div class="col-sm-6 col-md-3 col-lg-2 block-container border border-1 mt-3 mx-1  d-flex justify-content-center"
+        *ngFor="let item of data.results| paginate: {itemsPerPage: limit,currentPage: page,totalItems: count};let i = index">
+
+        <div *ngIf="trendingType=='movie'" class="cursor-pointer  mt-2">
+          <a [routerLink]="['/shared/MovieDetails',item.id]">
+            <div class="overflow-hidden">
+              <img [src]="baseImageURL+item.poster_path" class="w-100" alt="">
+            </div>
+            <div class="mb-4">
+              <app-circle-progress class="position-relative" [progress]="item.vote_average*10"></app-circle-progress>
+            </div>
+            <h3 class="my-0">{{item?.title|seeMore:2}}</h3>
+            <h3 class="my-0">{{item?.release_date}}</h3>
+          </a>
+        </div>
+
+        <div *ngIf="trendingType=='tv'" class="cursor-pointer  mt-2">
+          <a [routerLink]="['/shared/TvDetails',item.id]">
+            <div class="overflow-hidden">
+              <img [src]="baseImageURL+item.poster_path" class="w-100" alt="">
+            </div>
+            <div class="mb-4">
+              <app-circle-progress class="position-relative" [progress]="item.vote_average*10"></app-circle-progress>
+            </div>
+            <h3 class="my-0">{{item?.name|seeMore:2}}</h3>
+            <h3 class="my-0">{{item?.first_air_date}}</h3>
+          </a>
+        </div>
+
+        <div *ngIf="trendingType=='person'" class="cursor-pointer  mt-2">
+          <a [routerLink]="['/shared/PeopleDetails',item.id]">
+            <div class="overflow-hidden">
+              <img [src]="baseImageURL+item.profile_path" class="w-100" alt="">
+            </div>
+            <h3 class="my-0">{{item?.name|seeMore:2}}</h3>
+            <h3 class="my-0">{{item?.known_for_department}}</h3>
+          </a>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-5">
+      <div class="bg-main-color pt-3 pe-4">
+        <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noDataYet>
+    <app-no-data-yet></app-no-data-yet>
+  </ng-template>
+</div>

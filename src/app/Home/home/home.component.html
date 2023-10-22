@@ -1,0 +1,98 @@
+<div class="container-fluid px-5 my-5">
+  <br>
+  <section id="Movie" class="my-5">
+    <div class="row">
+      <h2 class="col-md-1 col-12 fw-bold color-main">Movie</h2>
+      <div class="col-md-11 col-12">
+        <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" (click)="choiceMovieType($event)" class="btn-check" value="now_playing"
+            name="btnRadioMovie" id="movie-now_playing" autocomplete="off" checked>
+          <label class="btn btn-outline-danger d-flex align-items-center" for="movie-now_playing">Now Playing</label>
+
+          <input type="radio" class="btn-check" (click)="choiceMovieType($event)" value="popular" name="btnRadioMovie"
+            id="movie-popular" autocomplete="off">
+          <label class="btn btn-outline-danger d-flex align-items-center" for="movie-popular">Popular</label>
+
+          <input type="radio" class="btn-check" (click)="choiceMovieType($event)" value="top_rated" name="btnRadioMovie"
+            id="movie-top_rated" autocomplete="off">
+          <label class="btn btn-outline-danger d-flex align-items-center" for="movie-top_rated">Top Rated</label>
+
+          <input type="radio" class="btn-check" (click)="choiceMovieType($event)" value="upcoming" name="btnRadioMovie"
+            id="movie-upcoming" autocomplete="off">
+          <label class="btn btn-outline-danger d-flex align-items-center" for="movie-upcoming">Up Coming</label>
+        </div>
+      </div>
+    </div>
+
+    <app-movie-carousel *ngIf="movieType=='now_playing'" [NameData]="'Now Playing'" [urlData]="'now_playing'">
+    </app-movie-carousel>
+    <app-movie-carousel *ngIf="movieType=='popular'" [NameData]="'Popular'" [urlData]="'popular'">
+    </app-movie-carousel>
+    <app-movie-carousel *ngIf="movieType=='top_rated'" [NameData]="'Top Rated'" [urlData]="'top_rated'">
+    </app-movie-carousel>
+    <app-movie-carousel *ngIf="movieType=='upcoming'" [NameData]="'Up Coming'" [urlData]="'upcoming'">
+    </app-movie-carousel>
+  </section>
+
+  <section id="TvSeriesList" class="my-5">
+    <div class="row">
+      <h2 class="col-md-1 col-12 fw-bold color-main">Tv</h2>
+      <div class="col-md-11 col-12">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" (click)="choiceTvType($event)" class="btn-check" value="airing_today" name="btnRadioTv"
+            id="tv-airing_today" autocomplete="off" checked>
+          <label class="btn btn-outline-danger d-flex align-items-center" (click)="choiceTvType($event)"
+            for="tv-airing_today">
+            Airing Today</label>
+
+          <input type="radio" class="btn-check" (click)="choiceTvType($event)" value="on_the_air" name="btnRadioTv"
+            id="tv-on_the_air" autocomplete="off">
+          <label class="btn btn-outline-danger d-flex align-items-center" for="tv-on_the_air">On The Air</label>
+
+          <input type="radio" class="btn-check" (click)="choiceTvType($event)" value="popular" name="btnRadioTv"
+            id="tv-popular" autocomplete="off">
+          <label class="btn btn-outline-danger d-flex align-items-center" for="tv-popular">Popular</label>
+
+          <input type="radio" class="btn-check" (click)="choiceTvType($event)" value="top_rated" name="btnRadioTv"
+            id="tv-top_rated" autocomplete="off">
+          <label class="btn btn-outline-danger d-flex align-items-center" for="tv-top_rated">Top Rated</label>
+        </div>
+      </div>
+    </div>
+
+    <app-tv-carousel *ngIf="TvType=='airing_today'" [NameData]="'Airing Today'" [urlData]="'airing_today'">
+    </app-tv-carousel>
+    <app-tv-carousel *ngIf="TvType=='on_the_air'" [NameData]="'On The Air'" [urlData]="'on_the_air'">
+    </app-tv-carousel>
+    <app-tv-carousel *ngIf="TvType=='popular'" [NameData]="'Popular'" [urlData]="'popular'">
+    </app-tv-carousel>
+    <app-tv-carousel *ngIf="TvType=='top_rated'" [NameData]="'Top Rated'" [urlData]="'top_rated'">
+    </app-tv-carousel>
+
+
+
+  </section>
+
+  <section id="People" class="my-5">
+    <div class="row">
+      <h2 class="col-md-1 col-12 fw-bold color-main">People</h2>
+      <div class="col-md-11 col-12">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" (click)="choicePeopleType($event)" class="btn-check" value="popular" name="btnRadioPeople"
+            id="tv-popular" autocomplete="off" checked>
+          <label class="btn btn-outline-danger d-flex align-items-center" (click)="choiceTvType($event)"
+            for="tv-popular"> Popular</label>
+        </div>
+      </div>
+    </div>
+
+    <app-people-carousel *ngIf="peopleType=='popular'" [NameData]="'Popular'" [urlData]="'popular'">
+    </app-people-carousel>
+
+  </section>
+
+
+
+
+
+</div>
